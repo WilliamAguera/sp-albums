@@ -1,0 +1,26 @@
+<mat-card class="card-auth" [formGroup]="form">
+    <mat-label class="card-header">Criar usuário</mat-label>
+    <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input formControlName="name" autocomplete="off" matInput placeholder="Ex: João">
+        <ng-container *ngIf="form.get('name')?.hasError('required') && form.get('name')?.dirty">
+            <div class="error-message">Campo requerido</div>
+        </ng-container>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" autocomplete="off" type="email" matInput placeholder="usuario@email.com">
+        <ng-container *ngIf="form.get('email')?.hasError('required') && form.get('email')?.dirty">
+            <div class="error-message">Campo requerido</div>
+        </ng-container>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input formControlName="password" autocomplete="off" type="password" matInput placeholder="Senha">
+        <ng-container *ngIf="form.get('password')?.hasError('required') && form.get('password')?.dirty">
+            <div class="error-message">Campo requerido</div>
+        </ng-container>
+    </mat-form-field>
+    <button [disabled]="!form.valid" mat-flat-button color="primary" (click)="createUser()">Criar usuario</button>
+    <a class="block-link" [routerLink]="'/auth/login'">Já tenho usuário</a>
+</mat-card>

@@ -1,0 +1,17 @@
+<div class="albums-container">
+    <ng-container *ngIf="isLoading$ | async; else albumsTemplate">
+        <mat-spinner></mat-spinner>
+    </ng-container>
+    <ng-template #albumsTemplate>
+        <div [@fade] class="anim-container">
+            <mat-card class="album-card" *ngFor="let album of albumsCollection$ | async" (click)="openAlbum(album)">
+                <img mat-card-image [src]="album.firstPhoto" alt="Cover Photo">
+                <mat-card-content>
+                    <p class="album-title">
+                        {{ '#' + album?.id }} - {{ album.title }}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-template>
+</div>

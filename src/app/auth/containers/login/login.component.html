@@ -1,0 +1,18 @@
+<mat-card>
+    <form class="card-auth" [formGroup]="form" (ngSubmit)="login()" autocomplete="off">
+        <mat-label class="card-header">Login</mat-label>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" autocomplete="off" type="email" matInput placeholder="usuario@email.com">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input formControlName="password" autocomplete="off" type="password" matInput placeholder="Senha">
+        </mat-form-field>
+        <button type="submit" [disabled]="!form.valid || (isLogging$ | async)" mat-flat-button color="primary" (click)="login()">
+            {{ (isLogging$ | async) ? 'Entrando...' : 'Login' }}
+        </button>
+        <mat-progress-bar *ngIf="isLogging$ | async" mode="indeterminate"></mat-progress-bar>
+        <a class="block-link" [routerLink]="'/auth/new-user'">Não tenho usuário</a>
+    </form>
+</mat-card>

@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{ '#' + album?.id }} - {{ album?.title }}</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-icon *ngIf="selected.index > 0" class="control-left" (click)="previous()">
+        keyboard_arrow_left
+    </mat-icon>
+    <div class="photo-container">
+        <img [src]="selected.photo.url">
+        <p class="photo-title">{{ selected.photo.title }}</p>
+    </div>
+    <mat-icon *ngIf="selected.index < album.photos.length - 1" class="control-right" (click)="next()">
+        keyboard_arrow_right
+    </mat-icon>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="thumb-container">
+        <div (click)="selectPhoto(photo)" *ngFor="let photo of album.photos" class="thumb-item" [class.selected]="photo.id === selected.photo.id">
+            <img [src]="photo?.thumbnailUrl" style="width: 100px; height: 100px; box-sizing: border-box;">
+        </div>
+    </div>
+</mat-dialog-actions>

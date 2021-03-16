@@ -1,0 +1,33 @@
+.albums-container {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: calc(100vh - 64px);
+  box-sizing: border-box;
+}
+
+.anim-container {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.album-card {
+  width: 200px;
+  margin: 1em;
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  flex-basis: 200px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.album-title {
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+}

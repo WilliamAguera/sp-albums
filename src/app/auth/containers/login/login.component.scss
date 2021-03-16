@@ -1,0 +1,10 @@
+.card-auth {
+  display: flex;
+  flex-flow: column;
+  width: 30vw;
+  min-width: 300px;
+  > .card-header {
+    font-size: 2rem;
+    margin: 1rem 0 2rem;
+  }
+}

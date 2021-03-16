@@ -1,0 +1,17 @@
+.card-auth {
+  display: flex;
+  flex-flow: column;
+  width: 30vw;
+  min-width: 300px;
+  > .card-header {
+    margin: 1rem 0 2rem;
+    font-size: 2rem;
+  }
+}
+
+.error-message {
+  position: absolute;
+  top: 50px;
+  font-size: 12px;
+  color: #e06464;
+}
